@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+   
+  .scrollbar-hide {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
+  /* styles.css */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
