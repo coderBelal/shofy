@@ -284,7 +284,8 @@ const HomeProduct = () => {
 
       {/* Modal */}
       {selectedProduct && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 z-10 flex items-center justify-center">
+         
+        <div   onClick={closeModal} className="fixed inset-0 bg-gray-600 bg-opacity-50 z-10 flex items-center justify-center">
           <div className="bg-white p-8 rounded-lg shadow-lg w-3/4 max-w-md relative">
             <button
               onClick={closeModal}

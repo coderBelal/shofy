@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { FaTimes } from "react-icons/fa"; // Close icon
-
+import { Link } from "react-router-dom";
+ 
 const CartSidebar = ({ isOpen, closeSidebar }) => {
   const { cartItems, updateCartItems, } = useContext(CartContext);
 
@@ -122,7 +123,10 @@ const CartSidebar = ({ isOpen, closeSidebar }) => {
               className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors"
               onClick={handleCheckout}
             >
-              Proceed to Checkout
+               <Link to="/checkout">
+               Proceed to Checkout
+               </Link>
+           
             </button>
           </div>
         </div>

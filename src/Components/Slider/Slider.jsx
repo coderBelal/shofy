@@ -45,8 +45,8 @@ const Slider = () => {
   };
 
   return (
-    <div className="relative w-full h-[500px] overflow-hidden">
-      <div className="absolute  inset-0 flex items-center justify-between px-4">
+    <div className="relative  w-full h-[500px] overflow-hidden">
+      <div className="absolute   inset-0 flex items-center justify-between px-4">
         {/* Previous Button */}
         <button
           onClick={prevSlide}
@@ -73,8 +73,8 @@ const Slider = () => {
         >
           {/* Image and Content */}
           <div className="flex flex-col  md:flex-row items-center justify-between w-full max-w-6xl mx-auto">
-            <div className="text-black md:w-1/2 px-5">
-              <h2 className="text-4xl mt-28 font-bold">{slide.title}</h2>
+            <div className="text-black hidden lg:block md:w-1/2 px-5">
+              <h2 className="text-3xl   font-bold">{slide.title}</h2>
               <p className="text-xl my-3">{slide.description}</p>
               <p className="text-2xl font-semibold">{slide.price}</p>
               <button className="mt-5 px-6 py-3 bg-white text-teal-900 font-bold rounded-md">

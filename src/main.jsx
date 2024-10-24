@@ -4,9 +4,11 @@ import App from './App.jsx'
 import './index.css'
 import { CartProvider } from './Context/CartContext.jsx'
 import { WishlistProvider } from './Context/WishContext.jsx'
+ 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+  
     <CartProvider>
       <WishlistProvider>
       <App />

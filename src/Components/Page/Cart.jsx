@@ -139,8 +139,9 @@ const Cart = () => {
             <button
               className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors"
               onClick={handleCheckout}
-            >
-              Proceed to Checkout
+            > 
+            <Link to="/checkout" >Proceed to Checkout</Link>
+              
             </button>
           </div>
         </div>

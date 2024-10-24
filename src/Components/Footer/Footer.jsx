@@ -9,14 +9,13 @@ const Footer = () => {
         <div className="md:flex justify-between mb-10">
           <div className="mb-6 md:mb-0">
             <h2 className="text-2xl font-bold text-gray-900"> 
-            <div className="flex right-6 items-center space-x-">
-          <img
-            src="https://i.postimg.cc/rsskSTyf/logo.png"
-            alt="Shofy Logo"
-            className="w-30 h-10 object-contain"
-          />
-        </div>
-
+              <div className="flex right-6 items-center">
+                <img
+                  src="https://i.postimg.cc/rsskSTyf/logo.png"
+                  alt="Shofy Logo"
+                  className="w-30 h-10 object-contain"
+                />
+              </div>
             </h2>
             <p className="text-sm mt-2">
               Shofy is a powerful tool eCommerce Laravel script for creating a professional and visually appealing online store.
@@ -35,23 +34,23 @@ const Footer = () => {
             <div>
               <h4 className="font-semibold text-gray-900 mb-3">My Account</h4>
               <ul className="text-sm space-y-2">
-                <li><a href="#">Track Orders</a></li>
-                <li><a href="#">Shipping</a></li>
-                <li><a href="#">Wishlist</a></li>
-                <li><a href="#">My Account</a></li>
-                <li><a href="#">Order History</a></li>
-                <li><a href="#">Returns</a></li>
+                <li>Track Orders</li>
+                <li>Shipping</li>
+                <li>Wishlist</li>
+                <li>My Account</li>
+                <li>Order History</li>
+                <li>Returns</li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold text-gray-900 mb-3">Information</h4>
               <ul className="text-sm space-y-2">
-                <li><a href="#">Our Story</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Latest News</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li>Our Story</li>
+                <li>Careers</li>
+                <li>Privacy Policy</li>
+                <li>Latest News</li>
+                <li>Contact Us</li>
               </ul>
             </div>
           </div>
@@ -60,10 +59,8 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-gray-900 mb-3">Talk To Us</h4>
             <p className="text-sm">Got Questions? Call us</p>
-            <p className="text-2xl font-bold text-gray-900 mb-4">+670 413 90 762</p>
-            <p className="text-sm">
-              <a href="mailto:support@shofy.com" className="hover:underline">support@shofy.com</a>
-            </p>
+            <p className="text-2xl font-bold text-gray-900 mb-4">+8801568-885065</p>
+            <p className="text-sm font-semibold">coderbelal99@gmail.com</p>
             <p className="text-sm">79 Sleepy Hollow St. Jamaica, New York 1432</p>
           </div>
         </div>
@@ -73,50 +70,50 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-gray-900 mb-3">Health & Beauty</h4>
             <ul className="space-y-1">
-              <li><a href="#">Top Brands</a></li>
-              <li><a href="#">Best Sellers</a></li>
-              <li><a href="#">Computers & Laptops</a></li>
-              <li><a href="#">Mobile Phone</a></li>
-              <li><a href="#">CPU Heat Pipes</a></li>
-              <li><a href="#">Accessories</a></li>
+              <li>Top Brands</li>
+              <li>Best Sellers</li>
+              <li>Computers & Laptops</li>
+              <li>Mobile Phone</li>
+              <li>CPU Heat Pipes</li>
+              <li>Accessories</li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold text-gray-900 mb-3">Electronics</h4>
             <ul className="space-y-1">
-              <li><a href="#">Featured</a></li>
-              <li><a href="#">New Arrivals</a></li>
-              <li><a href="#">TWS Earphones</a></li>
-              <li><a href="#">Gifts</a></li>
-              <li><a href="#">Computers</a></li>
-              <li><a href="#">Playstation</a></li>
+              <li>Featured</li>
+              <li>New Arrivals</li>
+              <li>TWS Earphones</li>
+              <li>Gifts</li>
+              <li>Computers</li>
+              <li>Playstation</li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold text-gray-900 mb-3">Sweet Treats</h4>
             <ul className="space-y-1">
-              <li><a href="#">Headphones</a></li>
-              <li><a href="#">Wireless Headphones</a></li>
-              <li><a href="#">Accessories</a></li>
-              <li><a href="#">TWS Earphones</a></li>
-              <li><a href="#">CPU Coolers</a></li>
-              <li><a href="#">Smart Watch</a></li>
-              <li><a href="#">Gaming Console</a></li>
+              <li>Headphones</li>
+              <li>Wireless Headphones</li>
+              <li>Accessories</li>
+              <li>TWS Earphones</li>
+              <li>CPU Coolers</li>
+              <li>Smart Watch</li>
+              <li>Gaming Console</li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold text-gray-900 mb-3">Fashion</h4>
             <ul className="space-y-1">
-              <li><a href="#">New Arrivals</a></li>
-              <li><a href="#">Featured</a></li>
-              <li><a href="#">Top Brands</a></li>
-              <li><a href="#">Electronics</a></li>
-              <li><a href="#">Best Sellers</a></li>
-              <li><a href="#">Computers & Laptops</a></li>
-              <li><a href="#">Mobile Phone</a></li>
+              <li>New Arrivals</li>
+              <li>Featured</li>
+              <li>Top Brands</li>
+              <li>Electronics</li>
+              <li>Best Sellers</li>
+              <li>Computers & Laptops</li>
+              <li>Mobile Phone</li>
             </ul>
           </div>
         </div>

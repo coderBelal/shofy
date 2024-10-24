@@ -15,29 +15,44 @@ import Login from "./Components/Acount/Login";
 import Register from "./Components/Acount/Register";
 import Contact from "./Components/Page/Contact";
 import Search from "./Components/Page/Search";
+import Checkout from "./Components/Page/CheckOut";
+import { useEffect, useState } from "react";
  
+import Loader from "./Components/Page/Loading";
 const App = () => {
+  const [loading,setLoading]=useState(true)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setLoading(false)
+    },2000)
+  },[])
   return (
+    <div className="app">
+      {loading ?( <Loader/>  ):(
     <Router>
-      <Navbar />
-      <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path="/headphone" element={<Headphone/>} />
-      <Route path="/bluetooth" element={<Bluetooth/>}  />
-      <Route path="/mobile" element={<Mobaile/>}  />
-      <Route path="/cpu" element={<Cpu/>} />
-      <Route path="/watch" element={<Watch/>}  />
-       <Route path="/cart" element={<Cart/>} />
-        <Route path="/wishlist" element={<WishList/>}  />
-        <Route path="/shop" element={ <Shop/>}  />
-        <Route path="/login" element={<Login/>}  />
-        <Route path="/register" element={<Register/>}  />
-        <Route path="/contact"  element={<Contact/>} />
-        <Route path="/search"  element={<Search/>}  />
+    <Navbar />
     
-      </Routes>
- <Footer/>
-    </Router>
+    <Routes>
+    <Route path="/" element={<Home/>} />
+    <Route path="/headphone" element={<Headphone/>} />
+    <Route path="/bluetooth" element={<Bluetooth/>}  />
+    <Route path="/mobile" element={<Mobaile/>}  />
+    <Route path="/cpu" element={<Cpu/>} />
+    <Route path="/watch" element={<Watch/>}  />
+     <Route path="/cart" element={<Cart/>} />
+      <Route path="/wishlist" element={<WishList/>}  />
+      <Route path="/shop" element={ <Shop/>}  />
+      <Route path="/login" element={<Login/>}  />
+      <Route path="/register" element={<Register/>}  />
+      <Route path="/contact"  element={<Contact/>} />
+      <Route path="/search"  element={<Search/>}  />
+        <Route path="/checkout" element={<Checkout/>}  />
+    </Routes>
+<Footer/>
+  </Router>
+      )}
+    </div>
+
   );
 };
 
