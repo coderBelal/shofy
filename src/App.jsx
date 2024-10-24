@@ -15,7 +15,7 @@ import Login from "./Components/Acount/Login";
 import Register from "./Components/Acount/Register";
 import Contact from "./Components/Page/Contact";
 import Search from "./Components/Page/Search";
-import Checkout from "./Components/Page/CheckOut";
+import Checkout from "./Components/Page/Checkout";
 import { useEffect, useState } from "react";
  
 import Loader from "./Components/Page/Loading";
