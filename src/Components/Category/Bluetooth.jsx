@@ -5,8 +5,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';  
 import { WishlistContext } from "../../Context/WishContext";
 import CartSidebar from "../Page/CartSidebar";
+import B1 from "../../assets/Bluetooth/b1.png"
+import B2 from "../../assets/Bluetooth/b2.jpg"
+import B3 from "../../assets/Bluetooth/b3.jpg"
  
-
 const  BluetoothShop  = () => {
     const products = [
         {
@@ -17,7 +19,7 @@ const  BluetoothShop  = () => {
             rating: 4,
             price: 1175,
             categories: ["all", "trending"],
-            img: "https://i.postimg.cc/kG9gNhY2/product-11-600x600.jpg",
+            img:  B1,
             description: "A premium 27-inch gaming monitor with a 144Hz refresh rate, exceptional color accuracy, and G-Sync support, perfect for serious gamers seeking top-tier performance.",
         },
         {
@@ -30,7 +32,7 @@ const  BluetoothShop  = () => {
             originalPrice: 1085.90,
             discount: 19,
             categories: ["all", "trending"],
-            img: "https://i.postimg.cc/kG9gNhY2/product-11-600x600.jpg",
+            img:  B2,
             description: "Experience vibrant 4K visuals with HDR support, built-in speakers, and eye-care technology. Ideal for immersive gaming, entertainment, and professional tasks.",
         },
         {
@@ -43,22 +45,10 @@ const  BluetoothShop  = () => {
           originalPrice: 1728,
           discount: 86,
           categories: ["all", "on sale"],
-          img: "https://i.postimg.cc/y8WYTRjy/product-details-desc-2-600x600.jpg",
+          img: B3,
           description: "A 4K UHD monitor with stunning image quality, perfect for creative professionals. Offers wide color coverage and premium design for work or entertainment.",
       },
-      {
-          id: 4,
-          name: "HP Z27k G3 4K USB-C Monitor",
-          store: "Global Office",
-          reviews: 6,
-          rating: 5,
-          price: 934,
-          originalPrice: 1290,
-          discount: 27,
-          categories: ["all", "featured"],
-          img: "https://i.postimg.cc/bvDrqn2w/product-8-600x600.jpg",
-          description: "Elevate your workspace with this sleek 4K monitor, offering ultra-clear visuals, USB-C connectivity, and superior color accuracy for creatives and professionals.",
-      },
+ 
   
     ];
  

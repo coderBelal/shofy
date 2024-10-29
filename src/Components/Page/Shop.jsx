@@ -212,7 +212,7 @@ const Shop = () => {
       rating: 5,
       price: 399,
       categories: ["all", "featured"],
-      img: "https://i.postimg.cc/qBpspBrc/apple-watch.jpg",
+      img:  "https://i.postimg.cc/bvDrqn2w/product-8-600x600.jpg",
       description:
         "A high-end smartwatch with advanced health tracking, GPS, and a large Retina display. Perfect for fitness enthusiasts and tech-savvy users.",
     },
@@ -227,7 +227,7 @@ const Shop = () => {
       rating: 4,
       price: 1499,
       categories: ["all", "trending"],
-      img: "https://i.postimg.cc/NGnR6Lgk/samsung-odyssey.jpg",
+      img:  "https://i.postimg.cc/bvDrqn2w/product-8-600x600.jpg",
       description:
         "The ultimate ultrawide gaming monitor with a 240Hz refresh rate, curved screen, and QLED technology. Perfect for immersive gaming experiences.",
     },
@@ -242,7 +242,7 @@ const Shop = () => {
       rating: 5,
       price: 129.99,
       categories: ["all", "on sale"],
-      img: "https://i.postimg.cc/HsYyY5vX/razer-blackwidow.jpg",
+      img:  "https://i.postimg.cc/bvDrqn2w/product-8-600x600.jpg",
       description:
         "A premium mechanical gaming keyboard with customizable RGB lighting, tactile switches, and dedicated media controls. Ideal for serious gamers and professionals.",
     },
@@ -287,7 +287,7 @@ const Shop = () => {
       rating: 5,
       price: 899,
       categories: ["all", "on sale"],
-      img: "https://i.postimg.cc/7hXbXLzR/nvidia-rtx-3080.jpg",
+      img:  "https://i.postimg.cc/bvDrqn2w/product-8-600x600.jpg",
       description:
         "A powerful graphics card for gaming and creative professionals, offering ray tracing, AI-powered features, and unbeatable performance for the most demanding tasks.",
     },

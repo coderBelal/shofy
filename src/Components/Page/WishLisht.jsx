@@ -76,13 +76,13 @@ const WishList = () => {
                     {/* Actions */}
                     <td className="p-4 flex items-center space-x-2">
                       <button
-                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+                        className=" text-white   bg-black px-4 py-2 rounded-lg flex items-center space-x-2"
                         onClick={() => handleAddToCart(item)}
                       >
                       <FaShoppingCart/>
                       </button>
                       <button
-                        className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
+                        className="   text-red-500 px-4 py-2 rounded-lg   transition-colors"
                         onClick={() => handleRemoveFromWishlist(item.id, item.name)}
                       >
                      <FaTrash/>

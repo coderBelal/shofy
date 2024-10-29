@@ -81,13 +81,13 @@ const Navbar = () => {
         {/* Icons */}
         <div className="lg:flex hidden items-center space-x-6">
           <Link to="/search">
-            <FiSearch className="text-2xl text-gray-700 hover:text-blue-500 transition duration-300" />
+            <FiSearch   onClick={() => setMenu('search')}     className={menu === 'search' ? ' text-xl text-blue-500 underline transition duration-300' : ' text-xl   underline transition duration-300'} />
           </Link>
           <Link to="/login">
-            <FaUser className="text-2xl text-gray-700 hover:text-blue-500 transition duration-300" />
+            <FaUser            onClick={() => setMenu('login')}     className={menu === 'login' ? ' text-xl text-blue-500 underline transition duration-300' : ' text-xl   underline transition duration-300'} />
           </Link>
           <Link to="/wishlist">
-            <FiHeart className="text-2xl text-gray-700 hover:text-blue-500 transition duration-300" />
+            <FiHeart   onClick={() => setMenu('wishlist')}     className={menu === 'wishlist' ? ' text-xl text-blue-500 underline transition duration-300' : ' text-xl   underline transition duration-300'}  />
           </Link>
         </div>
       </div>

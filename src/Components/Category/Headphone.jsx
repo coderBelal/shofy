@@ -5,24 +5,26 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';  
 import { WishlistContext } from "../../Context/WishContext";
 import CartSidebar from "../Page/CartSidebar";
- 
+ import h1 from "../../assets/Headphone/h1.jpg"
+ import h2 from "../../assets/Headphone/h2.jpg"
+ import h3 from "../../assets/Headphone/h3.jpg"
+ import h4 from "../../assets/Headphone/h4.jpg"
 
 const Headphone = () => {
   const products = [
     {
         id: 1,
-        name: "ASUS ROG Swift PG279QM 27-Inch",
-        store: "Robert's Store",
+        name: "Havit Headphone RGB",
+        store: " Havit Store",
         reviews: 9,
         rating: 4,
         price: 1175,
-        categories: ["all", "trending"],
-        img: "https://i.postimg.cc/kG9gNhY2/product-11-600x600.jpg",
+       img: h1,
         description: "A premium 27-inch gaming monitor with a 144Hz refresh rate, exceptional color accuracy, and G-Sync support, perfect for serious gamers seeking top-tier performance.",
     },
     {
         id: 2,
-        name: "BenQ EW3280U 32-Inch 4K HDR",
+        name: "BenQ  Headphone Black",
         store: "Old El Paso",
         reviews: 7,
         rating: 3,
@@ -30,12 +32,12 @@ const Headphone = () => {
         originalPrice: 1085.90,
         discount: 19,
         categories: ["all", "trending"],
-        img: "https://i.postimg.cc/kG9gNhY2/product-11-600x600.jpg",
+        img:  h2,
         description: "Experience vibrant 4K visuals with HDR support, built-in speakers, and eye-care technology. Ideal for immersive gaming, entertainment, and professional tasks.",
     },
     {
       id: 3,
-      name: "Dell UltraSharp U2720Q 27-Inch",
+      name: " HOCO Soft Headphone ",
       store: "Global Store",
       reviews: 10,
       rating: 4,
@@ -43,12 +45,12 @@ const Headphone = () => {
       originalPrice: 1728,
       discount: 86,
       categories: ["all", "on sale"],
-      img: "https://i.postimg.cc/y8WYTRjy/product-details-desc-2-600x600.jpg",
+      img: h3,
       description: "A 4K UHD monitor with stunning image quality, perfect for creative professionals. Offers wide color coverage and premium design for work or entertainment.",
   },
   {
       id: 4,
-      name: "HP Z27k G3 4K USB-C Monitor",
+      name: " A4 tech Smooth",
       store: "Global Office",
       reviews: 6,
       rating: 5,
@@ -56,7 +58,7 @@ const Headphone = () => {
       originalPrice: 1290,
       discount: 27,
       categories: ["all", "featured"],
-      img: "https://i.postimg.cc/bvDrqn2w/product-8-600x600.jpg",
+      img: h4,
       description: "Elevate your workspace with this sleek 4K monitor, offering ultra-clear visuals, USB-C connectivity, and superior color accuracy for creatives and professionals.",
   },
 

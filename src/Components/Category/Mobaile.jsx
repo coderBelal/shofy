@@ -5,58 +5,60 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';  
 import { WishlistContext } from "../../Context/WishContext";
 import CartSidebar from "../Page/CartSidebar";
- 
-
+ import p1 from "../../assets/Phone/p1.jpg"
+ import p2 from "../../assets/Phone/p2.jpg"
+ import p3 from "../../assets/Phone/p3.jpg"
+ import p4 from "../../assets/Phone/p4.jpg"
 const Mobaile = () => {
   const products = [
     {
         id: 1,
-        name: "ASUS ROG Swift PG279QM 27-Inch",
-        store: "Robert's Store",
+        name: " Iphone 15",
+        store: " Apple Store",
         reviews: 9,
         rating: 4,
         price: 1175,
         categories: ["all", "trending"],
-        img: "https://i.postimg.cc/kG9gNhY2/product-11-600x600.jpg",
+        img:  p1,
         description: "A premium 27-inch gaming monitor with a 144Hz refresh rate, exceptional color accuracy, and G-Sync support, perfect for serious gamers seeking top-tier performance.",
     },
     {
         id: 2,
-        name: "BenQ EW3280U 32-Inch 4K HDR",
-        store: "Old El Paso",
+        name: " Iphone 16",
+        store: "  Apple Store",
         reviews: 7,
         rating: 3,
         price: 878.85,
         originalPrice: 1085.90,
         discount: 19,
         categories: ["all", "trending"],
-        img: "https://i.postimg.cc/kG9gNhY2/product-11-600x600.jpg",
+        img:  p2,
         description: "Experience vibrant 4K visuals with HDR support, built-in speakers, and eye-care technology. Ideal for immersive gaming, entertainment, and professional tasks.",
     },
     {
       id: 3,
-      name: "Dell UltraSharp U2720Q 27-Inch",
-      store: "Global Store",
+      name: "  Iphone 13",
+      store: " Apple Store",
       reviews: 10,
       rating: 4,
       price: 238,
       originalPrice: 1728,
       discount: 86,
       categories: ["all", "on sale"],
-      img: "https://i.postimg.cc/y8WYTRjy/product-details-desc-2-600x600.jpg",
+      img: p3,
       description: "A 4K UHD monitor with stunning image quality, perfect for creative professionals. Offers wide color coverage and premium design for work or entertainment.",
   },
   {
       id: 4,
-      name: "HP Z27k G3 4K USB-C Monitor",
-      store: "Global Office",
+      name: " Iphone xs",
+      store: " Apple Store",
       reviews: 6,
       rating: 5,
       price: 934,
       originalPrice: 1290,
       discount: 27,
       categories: ["all", "featured"],
-      img: "https://i.postimg.cc/bvDrqn2w/product-8-600x600.jpg",
+      img:  p4,
       description: "Elevate your workspace with this sleek 4K monitor, offering ultra-clear visuals, USB-C connectivity, and superior color accuracy for creatives and professionals.",
   },
 
