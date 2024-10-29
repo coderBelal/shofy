@@ -341,7 +341,7 @@ const Shop = () => {
   return (
     <div className="flex pt-24">
      {/* Sidebar Filter */}
-<div className="w-1/4 lg:ml-9 h-screen sticky top-0 overflow-y-auto">
+<div className="w-1/4 lg:ml-9 md:ml-9 h-screen sticky top-0 overflow-y-auto">
   <h2 className="font-bold text-xl mb-4">Filters</h2>
 
   {/* Price Range */}
@@ -411,7 +411,7 @@ const Shop = () => {
 
 
       {/* Product Listing */}
-      <div className="w-3/4 p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="w-3/4 p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {filterProduct.map((product) => (
           <div
             key={product.id}
@@ -441,19 +441,19 @@ const Shop = () => {
             </div>
 
             {/* Hover effect buttons */}
-            <div className="absolute top-[83%] inset-0 flex items-center justify-center space-x-4">
-              <button onClick={() => handleAddToCart(product)} className="text-white bg-black px-4 py-2 rounded-lg flex items-center space-x-2">
+            <div className="absolute top-[83%] inset-0 flex   items-center justify-center space-x-4">
+              <button onClick={() => handleAddToCart(product)} className="text-white bg-black px-2 py-2 rounded-lg flex items-center space-x-2">
                 <button onClick={openCart}>
                 <FaShoppingCart />
                 </button>
                 
                 <span className="hidden">Add to Cart</span>
               </button>
-              <button onClick={() => handleQuickView(product)} className="text-white bg-blue-600 px-4 py-2 rounded-lg flex items-center space-x-2">
+              <button onClick={() => handleQuickView(product)} className="text-white bg-blue-600 px-2 py-2 rounded-lg flex items-center space-x-2">
                 <FaEye />
                 <span className="hidden">Quick View</span>
               </button>
-              <button onClick={() => handleAddToWishlist(product)} className="text-black bg-slate-200 px-4 py-2 rounded-lg flex items-center space-x-2">
+              <button onClick={() => handleAddToWishlist(product)} className="text-black bg-slate-200 px-2 py-2 rounded-lg flex items-center space-x-2">
                 <FaHeart />
                 <span className="hidden">Wishlist</span>
               </button>

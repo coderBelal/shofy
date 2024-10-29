@@ -142,15 +142,14 @@ const CartSidebar = ({ isOpen, closeSidebar }) => {
           </div>
 
           <div className="text-center mt-6">
+          <Link to="/checkout" >
             <button
               className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors"
               onClick={handleCheckout}
-            >
-               <Link to="/checkout">
-               Proceed to Checkout
-               </Link>
-           
-            </button>
+            > 
+           Proceed to Checkout
+              
+            </button></Link>
           </div>
         </div>
       )}

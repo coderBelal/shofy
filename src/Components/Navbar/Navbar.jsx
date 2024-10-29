@@ -35,10 +35,8 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links */}
-        <div
-          className={`md:flex md:items-center space-x-8 ${isOpen ? 'block' : 'hidden'} md:block absolute md:relative md:bg-transparent bg-white md:top-auto top-16 left-0 w-full shadow-md md:shadow-none transition duration-300 ease-in-out`}
-        >
-          <ul className="flex ml-16 font-semibold flex-col md:flex-row md:space-x-8 items-center py-4 md:py-0">
+        <div className="hidden md:flex md:items-center space-x-8">
+          <ul className="flex ml-16 font-semibold flex-col md:flex-row md:space-x-8 items-center">
             <li>
               <Link
                 to="/"
@@ -79,74 +77,93 @@ const Navbar = () => {
         </div>
 
         {/* Icons */}
-        <div className="lg:flex md:flex hidden items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-6">
           <Link to="/search">
-            <FiSearch   onClick={() => setMenu('search')}     className={menu === 'search' ? ' text-xl text-blue-500 underline transition duration-300' : ' text-xl   underline transition duration-300'} />
+            <FiSearch className="text-xl" />
           </Link>
           <Link to="/login">
-            <FaUser            onClick={() => setMenu('login')}     className={menu === 'login' ? ' text-xl text-blue-500 underline transition duration-300' : ' text-xl   underline transition duration-300'} />
+            <FaUser className="text-xl" />
           </Link>
           <Link to="/wishlist">
-            <FiHeart   onClick={() => setMenu('wishlist')}     className={menu === 'wishlist' ? ' text-xl text-blue-500 underline transition duration-300' : ' text-xl   underline transition duration-300'}  />
+            <FiHeart className="text-xl" />
           </Link>
         </div>
       </div>
 
       {/* Mobile Dropdown Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white shadow-md py-6 space-y-6 absolute w-full left-0 top-16 z-40 transition-all duration-300 ease-in-out">
-          <ul className="space-y-4 text-center">
-            <li>
-              <Link
-                to="/"
-                onClick={() => setMenu('home')}
-                className={menu === 'home' ? 'text-blue-500 underline transition duration-300' : 'hover:text-blue-500'}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/shop"
-                onClick={() => setMenu('shop')}
-                className={menu === 'shop' ? 'text-blue-500 underline transition duration-300' : 'hover:text-blue-500'}
-              >
-                Shop
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/cart"
-                onClick={() => setMenu('cart')}
-                className={menu === 'cart' ? 'text-blue-500 underline transition duration-300' : 'hover:text-blue-500'}
-              >
-                Cart
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/contact"
-                onClick={() => setMenu('contact')}
-                className={menu === 'contact' ? 'text-blue-500 underline transition duration-300' : 'hover:text-blue-500'}
-              >
-                Contact
-              </Link>
-            </li>
-          </ul>
-
-            <div className="flex  justify-center  space-x-6">
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-40 transform ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        } transition-transform duration-300 ease-in-out`}
+      >
+        <button
+          onClick={toggleMenu}
+          className="absolute top-4 right-4 text-2xl text-gray-700 focus:outline-none"
+        >
+          <FaTimes />
+        </button>
+        <ul className="mt-16 space-y-6 text-center font-semibold">
+          <li>
+            <Link
+              to="/"
+              onClick={() => {
+                setMenu('home');
+                toggleMenu();
+              }}
+              className={menu === 'home' ? 'text-blue-500 underline' : 'hover:text-blue-500'}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/shop"
+              onClick={() => {
+                setMenu('shop');
+                toggleMenu();
+              }}
+              className={menu === 'shop' ? 'text-blue-500 underline' : 'hover:text-blue-500'}
+            >
+              Shop
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/cart"
+              onClick={() => {
+                setMenu('cart');
+                toggleMenu();
+              }}
+              className={menu === 'cart' ? 'text-blue-500 underline' : 'hover:text-blue-500'}
+            >
+              Cart
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/contact"
+              onClick={() => {
+                setMenu('contact');
+                toggleMenu();
+              }}
+              className={menu === 'contact' ? 'text-blue-500 underline' : 'hover:text-blue-500'}
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
+        <div className="flex justify-center mt-8 space-x-6">
           <Link to="/search">
-            <FiSearch   onClick={() => setMenu('search')}     className={menu === 'search' ? ' text-xl text-blue-500 underline transition duration-300' : ' text-xl   underline transition duration-300'} />
+            <FiSearch className="text-xl" />
           </Link>
           <Link to="/login">
-            <FaUser            onClick={() => setMenu('login')}     className={menu === 'login' ? ' text-xl text-blue-500 underline transition duration-300' : ' text-xl   underline transition duration-300'} />
+            <FaUser className="text-xl" />
           </Link>
           <Link to="/wishlist">
-            <FiHeart   onClick={() => setMenu('wishlist')}     className={menu === 'wishlist' ? ' text-xl text-blue-500 underline transition duration-300' : ' text-xl   underline transition duration-300'}  />
+            <FiHeart className="text-xl" />
           </Link>
         </div>
-        </div>
-      )}
+      </div>
     </nav>
   );
 };
