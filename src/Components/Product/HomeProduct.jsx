@@ -235,6 +235,8 @@ const HomeProduct = () => {
         {filterProduct.map((product) => (
           <div
             key={product.id}
+            data-aos="zoom-in"
+             data-aos-duration="3000"
             className="relative border border-gray-400 group bg-white h-96 p-5 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105"
           >
             <img

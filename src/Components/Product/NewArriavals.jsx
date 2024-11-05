@@ -179,6 +179,7 @@ const NewSlider = () => {
       <div className="flex overflow-x-auto space-x-4 scrollbar-hide">
         {products.map((product) => (
           <div
+          data-aos="zoom-in"
             key={product.id}
             className="relative min-w-[250px] flex-shrink-0 border border-gray-400 h-96 p-5 rounded-lg shadow-lg transition-transform transform hover:scale-105"
           >

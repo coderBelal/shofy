@@ -20,7 +20,7 @@ const Newsletter = () => {
     <div className="bg-blue-600 text-white py-10 relative">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
         {/* Left Section - Text */}
-        <div className="text-center md:text-left mb-6 md:mb-0 md:w-1/2">
+        <div className="text-center md:text-left mb-6 md:mb-0 md:w-1/2" data-aos="fade-out">
           <p className="uppercase font-semibold text-sm tracking-widest">
             Sale 20% off all store
           </p>
@@ -30,7 +30,7 @@ const Newsletter = () => {
         </div>
 
         {/* Right Section - Subscription Form */}
-        <div className="relative md:w-1/2">
+        <div className="relative md:w-1/2" data-aos="fade-in">
           <div className="flex flex-col md:flex-row md:space-x-2">
             <input
               type="email"

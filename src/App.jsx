@@ -17,17 +17,24 @@ import Contact from "./Components/Page/Contact";
 import Search from "./Components/Page/Search";
 import Checkout from "./Components/Page/Checkout";
 import { useEffect, useState } from "react";
- 
+import 'aos/dist/aos.css';
 import Loader from "./Components/Page/Loading";
+import Aos from "aos";
 const App = () => {
   const [loading,setLoading]=useState(true)
+  useEffect(()=>{
+    Aos.init({
+      duration:1000,
+      once:true,
+    })
+  },[])
   useEffect(()=>{
     setTimeout(()=>{
       setLoading(false)
     },2000)
   },[])
   return (
-    <div className="app">
+    <div className="overflow-x-hidden">
       {loading ?( <Loader/>  ):(
     <Router>
     <Navbar />

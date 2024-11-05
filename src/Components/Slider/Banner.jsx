@@ -61,6 +61,8 @@ const  Banner = () => {
       {/* Slides */}
       {sliderData.map((slide, index) => (
         <div
+         data-aos="zoom-out"
+         data-aos-duration= "3000"
           key={index}
           className={`${
             index === currentIndex ? "block" : "hidden"
@@ -105,7 +107,7 @@ const  Banner = () => {
             <h3 className="text-xl text-center text-blue-800 font-semibold mb-2">
               {banners.title}
             </h3>
-            <img src={banners.img} alt={banners.title} className="w-full h-auto object-cover" />
+            <img  data-aos="fade-right" src={banners.img} alt={banners.title} className="w-full h-auto object-cover" />
           </div>
         ))}
       </div>

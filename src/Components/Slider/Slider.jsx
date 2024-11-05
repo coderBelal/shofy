@@ -74,10 +74,10 @@ const Slider = () => {
           {/* Image and Content */}
           <div className="flex flex-col  md:flex-row items-center justify-between w-full max-w-6xl mx-auto">
             <div className="text-black hidden lg:block md:w-1/2 px-5">
-              <h2 className="text-3xl   font-bold">{slide.title}</h2>
-              <p className="text-xl my-3">{slide.description}</p>
-              <p className="text-2xl font-semibold">{slide.price}</p>
-              <button className="mt-5 px-6 py-3 bg-white text-teal-900 font-bold rounded-md">
+              <h2 data-aos="fade-right" className="text-3xl   font-bold">{slide.title}</h2>
+              <p data-aos="zoom-out"className="text-xl my-3">{slide.description}</p>
+              <p data-aos="fade-right" className="text-2xl font-semibold">{slide.price}</p>
+              <button data-aos="zoom-in" className="mt-5 px-6 py-3 bg-white text-teal-900 font-bold rounded-md">
                 <Link to="/shop"> Shop Now</Link>
                
               </button>
@@ -87,6 +87,8 @@ const Slider = () => {
                 src={slide.image}
                 alt={slide.title}
                 className="w-full h-auto object-contain"
+                data-aos="fade-left"
+                data-aos-duration="3000"
               />
             </div>
           </div>

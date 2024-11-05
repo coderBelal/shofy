@@ -44,6 +44,7 @@ const CategoryPage = () => {
           {categories.map((category, index) => (
             <div
               key={index}
+              data-aos="zoom-out"
               className="min-w-[200px] sm:min-w-0 rounded-lg p-6 text-center"
             >
          

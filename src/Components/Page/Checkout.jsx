@@ -160,7 +160,7 @@ const Checkout = () => {
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
+              className="w-full  bg-black text-white py-2 rounded-md  transition-colors"
             >
               Submit
             </button>
