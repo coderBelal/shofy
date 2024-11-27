@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';  
 import { WishlistContext } from "../../Context/WishContext";
 import CartSidebar from "./../Page/CartSidebar"
+import { Link, useNavigate } from "react-router-dom";
 const HomeProduct = () => {
   const products = [
     {
@@ -159,31 +160,50 @@ const HomeProduct = () => {
   const { addToWishlist } = useContext(WishlistContext);
 
   const handleAddToWishlist = (product) => {
+    if (!user  && !user2) {
+  
+      toast.warning('You need to log in to add items to the cart!');
+      navigate("/login"); // replace with your login route
+      return;
+    }
     addToWishlist(product);
     toast.info(`${product.name} added to wishlist!`);
   };
 
-  const filterProduct = products.filter((product) =>
-    product.categories.includes(filter)
-  );
-  const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const openCart = () => setIsCartOpen(true);
-  const closeCart = () => setIsCartOpen(false);
-
-  const handleQuickView = (product) => {
-    setSelectedProduct(product);  
-  };
-
-  const closeModal = () => {
-    setSelectedProduct(null);  
-  };
-
-  const handleAddToCart = (product) => {
-    addToCart(product);
-    toast.success(`${product.name} added to cart!`);
-  };
-
+  const user2 = localStorage.getItem("user2") ? JSON.parse(localStorage.getItem("user2")) : null
+ 
+  
+    const handleAddToCart = (product) => {
+      if (!user  && !user2) {
+  
+        toast.warning('You need to log in to add items to the cart!');
+        navigate("/login"); // replace with your login route
+        return;
+      }
+    
+      addToCart(product);
+      toast.success(`${product.name} added to cart!`);
+    };
+    const filterProduct = products.filter((product) =>
+      product.categories.includes(filter)
+    );
+    const [isCartOpen, setIsCartOpen] = useState(false);
+  const navigate=useNavigate()
+    const openCart = () => setIsCartOpen(true);
+    const closeCart = () => setIsCartOpen(false);
+  
+    const handleQuickView = (product) => {
+      setSelectedProduct(product);  
+    };
+  
+    const closeModal = () => {
+      setSelectedProduct(null);  
+    };
+   
+  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+  
+ 
   return (
     <div className="bg-gray-100 p-8">
    
@@ -325,7 +345,7 @@ const HomeProduct = () => {
         </div>
       )}
       <CartSidebar  isOpen={isCartOpen} closeSidebar={closeCart} />
-       
+       <ToastContainer/>
     </div>
   );
 };

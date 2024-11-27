@@ -8,6 +8,7 @@ import CartSidebar from "../Page/CartSidebar";
 import B1 from "../../assets/Bluetooth/b1.png"
 import B2 from "../../assets/Bluetooth/b2.jpg"
 import B3 from "../../assets/Bluetooth/b3.jpg"
+import { useNavigate } from "react-router-dom";
  
 const  BluetoothShop  = () => {
     const products = [
@@ -56,11 +57,35 @@ const  BluetoothShop  = () => {
   const { addToCart } = useContext(CartContext);
   const { addToWishlist } = useContext(WishlistContext);
 
+  const navigate=useNavigate()
   const handleAddToWishlist = (product) => {
+    const user2 = localStorage.getItem("user2") ? JSON.parse(localStorage.getItem("user2")) : null
+ 
+    
+    if (!user && !user2) {
+  
+      toast.warning('You need to log in to add items to the cart!');
+      navigate("/login"); // replace with your login route
+      return;
+    }
     addToWishlist(product);
     toast.info(`${product.name} added to wishlist!`);
   };
 
+
+ 
+    const handleAddToCart = (product) => {
+      if (!user) {
+  
+        toast.warning('You need to log in to add items to the cart!');
+        navigate("/login"); // replace with your login route
+        return;
+      }
+    
+      addToCart(product);
+      toast.success(`${product.name} added to cart!`);
+    };
+    const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
  
 
   const handleQuickView = (product) => {
@@ -71,10 +96,7 @@ const  BluetoothShop  = () => {
     setSelectedProduct(null);  
   };
 
-  const handleAddToCart = (product) => {
-    addToCart(product);
-    toast.success(`${product.name} added to cart!`);
-  };
+  
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const openCart = () => setIsCartOpen(true);

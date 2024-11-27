@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';  
 import { WishlistContext } from "../../Context/WishContext";
 import CartSidebar from "./../Page/CartSidebar";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const products = [
@@ -332,182 +333,203 @@ const Shop = () => {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-
+  const user = JSON.parse(localStorage.getItem("user"));  
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
   const handleQuickView = (product) => setSelectedProduct(product);  
   const closeModal = () => setSelectedProduct(null);  
-
+  const user2 = localStorage.getItem("user2") ? JSON.parse(localStorage.getItem("user2")) : null
+  if (!user && !user2) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
+        <img
+          src="https://i.postimg.cc/vTtjkxc3/auth-banner.png"
+          alt="Cart Image"
+          className="mb-8 w-[300px]"
+        />
+        <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800">
+          <Link to="/login"> Log In and Continue </Link>
+        </button>
+      </div>
+    );
+  }
+  
   return (
-    <div className="flex pt-24">
-     {/* Sidebar Filter */}
-<div className="w-1/4 lg:ml-9 md:ml-9 h-screen sticky top-0 overflow-y-auto">
-  <h2 className="font-bold text-xl mb-4">Filters</h2>
+ 
+ 
+  <div className=" flex pt-24">
+ 
+<div className="   w-1/4 lg:ml-9 md:ml-9   sticky top-0 overflow-y-auto">
+<h2 className="font-bold text-xl mb-4">Filters</h2>
 
-  {/* Price Range */}
-  <div className="mb-4">
-    <input 
-      type="range" 
-      min="0" 
-      max="2000" 
-      value={priceRange[1]} 
-      onChange={(e) => setPriceRange([0, e.target.value])} 
-      className="w-full"
-    />
-    <span>Price: ${priceRange[0]} - ${priceRange[1]}</span>
-  </div>
+{/* Price Range */}
+<div className="mb-4">
+  <input 
+    type="range" 
+    min="0" 
+    max="2000" 
+    value={priceRange[1]} 
+    onChange={(e) => setPriceRange([0, e.target.value])} 
+    className="w-full"
+  />
+  <span>Price: ${priceRange[0]} - ${priceRange[1]}</span>
+</div>
 
-  {/* Size Filter */}
-  <div className="mb-4">
-    <h3 className="font-semibold mb-2">Size</h3>
-    {uniqueSizes.map((size) => (
-      <div key={size} className="flex items-center">
-        <input 
-          type="checkbox" 
-          value={size} 
-          onChange={(e) =>  setSelectedSize(e.target.value)} 
-          checked={selectedSize.includes(size)} 
-          className="mr-2"
-        />
-        <label>{size}</label>
-      </div>
-    ))}
-  </div>
+{/* Size Filter */}
+<div className="mb-4">
+  <h3 className="font-semibold mb-2">Size</h3>
+  {uniqueSizes.map((size) => (
+    <div key={size} className="flex items-center">
+      <input 
+        type="checkbox" 
+        value={size} 
+        onChange={(e) =>  setSelectedSize(e.target.value)} 
+        checked={selectedSize.includes(size)} 
+        className="mr-2"
+      />
+      <label>{size}</label>
+    </div>
+  ))}
+</div>
 
-  {/* Brand Filter */}
-  <div className="mb-4">
-    <h3 className="font-semibold mb-2">Brand</h3>
-    {uniqueBrands.map((brand) => (
-      <div key={brand} className="flex items-center">
-        <input 
-          type="checkbox" 
-          value={brand} 
-          onChange={(e) => setSelectedBrand(e.target.value)} 
-          checked={selectedBrand.includes(brand)} 
-          className="mr-2"
-        />
-        <label>{brand}</label>
-      </div>
-    ))}
-  </div>
+{/* Brand Filter */}
+<div className="mb-4">
+  <h3 className="font-semibold mb-2">Brand</h3>
+  {uniqueBrands.map((brand) => (
+    <div key={brand} className="flex items-center">
+      <input 
+        type="checkbox" 
+        value={brand} 
+        onChange={(e) => setSelectedBrand(e.target.value)} 
+        checked={selectedBrand.includes(brand)} 
+        className="mr-2"
+      />
+      <label>{brand}</label>
+    </div>
+  ))}
+</div>
 
-  {/* Color Filter */}
-  <div className="mb-4">
-    <h3 className="font-semibold mb-2">Color</h3>
-    {uniqueColors.map((color) => (
-      <div key={color} className="flex items-center">
-        <input 
-          type="checkbox" 
-          value={color} 
-          onChange={(e) => setSelectedColor(e.target.value)} 
-          checked={selectedColor.includes(color)} 
-          className="mr-2"
-        />
-        <label>{color}</label>
-      </div>
-    ))}
-  </div>
+{/* Color Filter */}
+<div className="mb-4">
+  <h3 className="font-semibold mb-2">Color</h3>
+  {uniqueColors.map((color) => (
+    <div key={color} className="flex items-center">
+      <input 
+        type="checkbox" 
+        value={color} 
+        onChange={(e) => setSelectedColor(e.target.value)} 
+        checked={selectedColor.includes(color)} 
+        className="mr-2"
+      />
+      <label>{color}</label>
+    </div>
+  ))}
+</div>
 </div>
 
 
-      {/* Product Listing */}
-      <div className="w-3/4 p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {filterProduct.map((product) => (
-          <div
-            key={product.id}
-            className="relative border border-gray-400 group bg-white h-96 p-5 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105"
-          >
-            <img
-              src={product.img}
-              alt={product.name}
-              className="w-[80%] h-40 object-cover rounded-md"
-            />
-            <div className="mt-4">
-              <div className="font-bold text-blue-500 text-lg">
-                {product.name}
-              </div>
-              <div className="text-gray-500 font-semibold">{product.store}</div>
-              <div className="text-yellow-400 font-semibold">
-                {product.rating} Stars
-              </div>
-              <div className="font-bold text-xl text-blue-500">
-                ${product.price}
-                {product.originalPrice && (
-                  <span className="text-gray-400 line-through text-sm ml-2">
-                    ${product.originalPrice}
-                  </span>
-                )}
-              </div>
+    {/* Product Listing */}
+    <div className="w-3/4 p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {filterProduct.map((product) => (
+        <div
+          key={product.id}
+          className="relative border border-gray-400 group bg-white h-96 p-5 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105"
+        >
+          <img
+            src={product.img}
+            alt={product.name}
+            className="w-[80%] h-40 object-cover rounded-md"
+          />
+          <div className="mt-4">
+            <div className="font-bold text-blue-500 text-lg">
+              {product.name}
             </div>
+            <div className="text-gray-500 font-semibold">{product.store}</div>
+            <div className="text-yellow-400 font-semibold">
+              {product.rating} Stars
+            </div>
+            <div className="font-bold text-xl text-blue-500">
+              ${product.price}
+              {product.originalPrice && (
+                <span className="text-gray-400 line-through text-sm ml-2">
+                  ${product.originalPrice}
+                </span>
+              )}
+            </div>
+          </div>
 
-            {/* Hover effect buttons */}
-            <div className="absolute top-[83%] inset-0 flex   items-center justify-center space-x-4">
-              <button onClick={() => handleAddToCart(product)} className="text-white bg-black px-2 py-2 rounded-lg flex items-center space-x-2">
-                <button onClick={openCart}>
-                <FaShoppingCart />
-                </button>
-                
-                <span className="hidden">Add to Cart</span>
-              </button>
-              <button onClick={() => handleQuickView(product)} className="text-white bg-blue-600 px-2 py-2 rounded-lg flex items-center space-x-2">
-                <FaEye />
-                <span className="hidden">Quick View</span>
-              </button>
-              <button onClick={() => handleAddToWishlist(product)} className="text-black bg-slate-200 px-2 py-2 rounded-lg flex items-center space-x-2">
-                <FaHeart />
-                <span className="hidden">Wishlist</span>
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-       {/* Modal */}
-       {selectedProduct && (
-        <div   onClick={closeModal} className="fixed inset-0 bg-gray-600 bg-opacity-50 z-10 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-3/4 max-w-md relative">
-            <button
-              onClick={closeModal}
-              className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
-            >
-              X
-            </button>
-            <img
-              src={selectedProduct.img}
-              alt={selectedProduct.name}
-              className="w-full h-64 object-cover rounded-md"
-            />
-       
-       <h2 className="text-2xl font-bold mt-4">{selectedProduct.name}</h2>
- 
-            <p className="text-gray-600">{selectedProduct.description}</p>
-            <div className="mt-4">
-              <span className="font-bold text-xl text-blue-500">
-                ${selectedProduct.price}
-              </span>
-            </div>
-          
-            <div className="absolute   left-36  top-[83%] inset-0   flex items-center justify-center space-x-4">
-              <button onClick={() => handleAddToCart(selectedProduct)}  className="text-white   bg-black px-4 py-2 rounded-lg flex items-center space-x-2">
+          {/* Hover effect buttons */}
+          <div className="absolute top-[83%] inset-0 flex   items-center justify-center space-x-4">
+            <button onClick={() => handleAddToCart(product)} className="text-white bg-black px-2 py-2 rounded-lg flex items-center space-x-2">
               <button onClick={openCart}>
-                <FaShoppingCart />
-                </button>
-                <span className=" hidden  ">Add to Cart</span>
+              <FaShoppingCart />
               </button>
-           
-              <button onClick={() => handleAddToWishlist(selectedProduct)} className="text-black  bg-slate-200     px-4 py-2 rounded-lg flex items-center space-x-2">
-                <FaHeart />
-                <span className=" hidden  ">Wishlist</span>
-              </button>
-            </div>
+              
+              <span className="hidden">Add to Cart</span>
+            </button>
+            <button onClick={() => handleQuickView(product)} className="text-white bg-blue-600 px-2 py-2 rounded-lg flex items-center space-x-2">
+              <FaEye />
+              <span className="hidden">Quick View</span>
+            </button>
+            <button onClick={() => handleAddToWishlist(product)} className="text-black bg-slate-200 px-2 py-2 rounded-lg flex items-center space-x-2">
+              <FaHeart />
+              <span className="hidden">Wishlist</span>
+            </button>
           </div>
-           
         </div>
-      )}
-      <ToastContainer />
-      <CartSidebar  isOpen={isCartOpen} closeSidebar={closeCart} />
-       
+      ))}
     </div>
-  );
+     {/* Modal */}
+     {selectedProduct && (
+      <div   onClick={closeModal} className="fixed inset-0 bg-gray-600 bg-opacity-50 z-10 flex items-center justify-center">
+        <div className="bg-white p-8 rounded-lg shadow-lg w-3/4 max-w-md relative">
+          <button
+            onClick={closeModal}
+            className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+          >
+            X
+          </button>
+          <img
+            src={selectedProduct.img}
+            alt={selectedProduct.name}
+            className="w-full h-64 object-cover rounded-md"
+          />
+     
+     <h2 className="text-2xl font-bold mt-4">{selectedProduct.name}</h2>
+
+          <p className="text-gray-600">{selectedProduct.description}</p>
+          <div className="mt-4">
+            <span className="font-bold text-xl text-blue-500">
+              ${selectedProduct.price}
+            </span>
+          </div>
+        
+          <div className="absolute   left-36  top-[83%] inset-0   flex items-center justify-center space-x-4">
+            <button onClick={() => handleAddToCart(selectedProduct)}  className="text-white   bg-black px-4 py-2 rounded-lg flex items-center space-x-2">
+            <button onClick={openCart}>
+              <FaShoppingCart />
+              </button>
+              <span className=" hidden  ">Add to Cart</span>
+            </button>
+         
+            <button onClick={() => handleAddToWishlist(selectedProduct)} className="text-black  bg-slate-200     px-4 py-2 rounded-lg flex items-center space-x-2">
+              <FaHeart />
+              <span className=" hidden  ">Wishlist</span>
+            </button>
+          </div>
+        </div>
+         
+      </div>
+    )}
+    <ToastContainer />
+    <CartSidebar  isOpen={isCartOpen} closeSidebar={closeCart} />
+     
+  </div>
+ 
+ 
+ 
+ )
+  
 };
 
 export default Shop;

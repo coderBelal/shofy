@@ -16,6 +16,7 @@ import product7 from "../../assets/Arrivals/product7.jpg";
 import product8 from "../../assets/Arrivals/product8.jpg";
 import product9 from "../../assets/Arrivals/product9jpg.jpg";
 import product10 from "../../assets/Arrivals/product10.jpg";
+import { Link, useNavigate } from 'react-router-dom';
  
 const products = [
   {
@@ -148,18 +149,38 @@ const NewSlider = () => {
   const {addToCart}= useContext(CartContext)
   const { addToWishlist } = useContext(WishlistContext);
 
-  const handleAddToWishlist = (product) => {
-    addToWishlist(product);
-    toast.info(`${product.name} added to wishlist!`);
-  };
+ 
   const handleQuickView = (product) => {
     setSelectedProduct(product); 
   };
-  const handleAddToCart = (product) => {
-    addToCart(product);
-    toast.success(`${product.name} added to cart!`);
+  const navigate=useNavigate()
+ 
+ 
+  const handleAddToWishlist = (product) => {
+    if (!user) {
+  
+      toast.warning('You need to log in to add items to the cart!');
+      navigate("/login"); // replace with your login route
+      return;
+    }
+    addToWishlist(product);
+    toast.info(`${product.name} added to wishlist!`);
   };
 
+
+ 
+    const handleAddToCart = (product) => {
+      if (!user) {
+  
+        toast.warning('You need to log in to add items to the cart!');
+        navigate("/login"); // replace with your login route
+        return;
+      }
+    
+      addToCart(product);
+      toast.success(`${product.name} added to cart!`);
+    };
+    const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
   const closeModal = () => {
     setSelectedProduct(null);  
   };

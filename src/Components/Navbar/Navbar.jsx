@@ -7,6 +7,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [menu, setMenu] = useState('home');
 
+  const user = JSON.parse(localStorage.getItem('user'));
+  const user2 = JSON.parse(localStorage.getItem('user2'));
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -23,17 +26,6 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Hamburger Icon (visible on mobile) */}
-        <div className="md:hidden">
-          <button onClick={toggleMenu} className="focus:outline-none">
-            {isOpen ? (
-              <FaTimes className="text-2xl text-gray-700 transition duration-300 hover:text-blue-500" />
-            ) : (
-              <FaBars className="text-2xl text-gray-700 transition duration-300 hover:text-blue-500" />
-            )}
-          </button>
-        </div>
-
         {/* Navigation Links */}
         <div className="hidden md:flex md:items-center space-x-8">
           <ul className="flex ml-16 font-semibold flex-col md:flex-row md:space-x-8 items-center">
@@ -41,7 +33,11 @@ const Navbar = () => {
               <Link
                 to="/"
                 onClick={() => setMenu('home')}
-                className={menu === 'home' ? 'text-blue-500 underline transition duration-300' : 'hover:text-blue-500'}
+                className={
+                  menu === 'home'
+                    ? 'text-blue-500 underline transition duration-300'
+                    : 'hover:text-blue-500'
+                }
               >
                 Home
               </Link>
@@ -50,7 +46,11 @@ const Navbar = () => {
               <Link
                 to="/shop"
                 onClick={() => setMenu('shop')}
-                className={menu === 'shop' ? 'text-blue-500 underline transition duration-300' : 'hover:text-blue-500'}
+                className={
+                  menu === 'shop'
+                    ? 'text-blue-500 underline transition duration-300'
+                    : 'hover:text-blue-500'
+                }
               >
                 Shop
               </Link>
@@ -59,7 +59,11 @@ const Navbar = () => {
               <Link
                 to="/cart"
                 onClick={() => setMenu('cart')}
-                className={menu === 'cart' ? 'text-blue-500 underline transition duration-300' : 'hover:text-blue-500'}
+                className={
+                  menu === 'cart'
+                    ? 'text-blue-500 underline transition duration-300'
+                    : 'hover:text-blue-500'
+                }
               >
                 Cart
               </Link>
@@ -68,11 +72,45 @@ const Navbar = () => {
               <Link
                 to="/contact"
                 onClick={() => setMenu('contact')}
-                className={menu === 'contact' ? 'text-blue-500 underline transition duration-300' : 'hover:text-blue-500'}
+                className={
+                  menu === 'contact'
+                    ? 'text-blue-500 underline transition duration-300'
+                    : 'hover:text-blue-500'
+                }
               >
                 Contact
               </Link>
             </li>
+            {user && (
+              <li>
+                <Link
+                  to="/profile"
+                  onClick={() => setMenu('profile')}
+                  className={
+                    menu === 'profile'
+                      ? 'text-blue-500 underline transition duration-300'
+                      : 'hover:text-blue-500'
+                  }
+                >
+                  Profile
+                </Link>
+              </li>
+            )}
+            {user2 && (
+              <li>
+                <Link
+                  to="/profile"
+                  onClick={() => setMenu('user2-profile')}
+                  className={
+                    menu === 'user2-profile'
+                      ? 'text-blue-500 underline transition duration-300'
+                      : 'hover:text-blue-500'
+                  }
+                >
+                 Profile
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
 
@@ -87,6 +125,17 @@ const Navbar = () => {
           <Link to="/wishlist">
             <FiHeart className="text-xl" />
           </Link>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
+          <button onClick={toggleMenu} className="focus:outline-none">
+            {isOpen ? (
+              <FaTimes className="text-2xl text-gray-700 transition duration-300 hover:text-blue-500" />
+            ) : (
+              <FaBars className="text-2xl text-gray-700 transition duration-300 hover:text-blue-500" />
+            )}
+          </button>
         </div>
       </div>
 
@@ -151,18 +200,35 @@ const Navbar = () => {
               Contact
             </Link>
           </li>
+          {user && (
+            <li>
+              <Link
+                to="/profile"
+                onClick={() => {
+                  setMenu('profile');
+                  toggleMenu();
+                }}
+                className={menu === 'profile' ? 'text-blue-500 underline' : 'hover:text-blue-500'}
+              >
+                Profile
+              </Link>
+            </li>
+          )}
+          {user2 && (
+            <li>
+              <Link
+                to="/profile"
+                onClick={() => {
+                  setMenu('user2-profile');
+                  toggleMenu();
+                }}
+                className={menu === 'user2-profile' ? 'text-blue-500 underline' : 'hover:text-blue-500'}
+              >
+              Profile
+              </Link>
+            </li>
+          )}
         </ul>
-        <div className="flex justify-center mt-8 space-x-6">
-          <Link to="/search">
-            <FiSearch className="text-xl" />
-          </Link>
-          <Link to="/login">
-            <FaUser className="text-xl" />
-          </Link>
-          <Link to="/wishlist">
-            <FiHeart className="text-xl" />
-          </Link>
-        </div>
       </div>
     </nav>
   );

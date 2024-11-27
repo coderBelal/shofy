@@ -2,7 +2,7 @@ import CategoryPage from "../Category/CategoryPage"
 import Newsletter from "../NewsLetter"
  
 import HomeProduct from "../Product/HomeProduct"
-import NewSlider from "../Product/NewArriavals"
+// import NewSlider from "../Product/NewArriavals"
 import ProductList from "../Product/ProductList"
  
 import Banner from "../Slider/Banner"
@@ -17,7 +17,7 @@ const Home = () => {
  <HomeProduct/>
  <Banner/>
  {/* responsive issue for this  */}
- <NewSlider/>  
+ {/* <NewSlider/>   */}
  <ProductList/>
  <Newsletter/>
  

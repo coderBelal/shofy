@@ -17,7 +17,8 @@ const Cart = () => {
     });
     updateCartItems(updatedCartItems);
   };
-
+  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+  const use2 = localStorage.getItem("user2") ? JSON.parse(localStorage.getItem("user2")) : null
   const decreaseQuantity = (id) => {
     const updatedCartItems = cartItems.map((item) => {
       if (item.id === id && item.quantity > 1) {
@@ -41,7 +42,22 @@ const Cart = () => {
     (total, item) => total + item.price * item.quantity,
     0
   );
-
+ 
+  if (!user && !use2) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
+        <img
+          src="https://i.postimg.cc/vTtjkxc3/auth-banner.png"
+          alt="Cart Image"
+          className="mb-8 w-[300px]"
+        />
+        <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800">
+          <Link to="/login"> Log In and Continue </Link>
+        </button>
+      </div>
+    );
+  }
+  
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <h2 className="text-3xl font-bold mb-6 text-gray-800">Your Cart</h2>

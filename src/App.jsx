@@ -20,6 +20,8 @@ import { useEffect, useState } from "react";
 import 'aos/dist/aos.css';
 import Loader from "./Components/Page/Loading";
 import Aos from "aos";
+import Profile from "./Components/Acount/Profile";
+ 
 const App = () => {
   const [loading,setLoading]=useState(true)
   useEffect(()=>{
@@ -54,6 +56,7 @@ const App = () => {
       <Route path="/contact"  element={<Contact/>} />
       <Route path="/search"  element={<Search/>}  />
         <Route path="/checkout" element={<Checkout/>}  />
+        <Route path="/profile" element={<Profile/> }  />
     </Routes>
 <Footer/>
   </Router>

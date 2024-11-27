@@ -9,6 +9,7 @@ import CartSidebar from "../Page/CartSidebar";
  import p2 from "../../assets/Phone/p2.jpg"
  import p3 from "../../assets/Phone/p3.jpg"
  import p4 from "../../assets/Phone/p4.jpg"
+import { useNavigate } from "react-router-dom";
 const Mobaile = () => {
   const products = [
     {
@@ -67,14 +68,7 @@ const Mobaile = () => {
 const [selectedProduct, setSelectedProduct] = useState(null);  
 const { addToCart } = useContext(CartContext);
 const { addToWishlist } = useContext(WishlistContext);
-
-const handleAddToWishlist = (product) => {
-addToWishlist(product);
-toast.info(`${product.name} added to wishlist!`);
-};
-
-
-
+ 
 const handleQuickView = (product) => {
 setSelectedProduct(product);  
 };
@@ -83,10 +77,33 @@ const closeModal = () => {
 setSelectedProduct(null);  
 };
 
-const handleAddToCart = (product) => {
-addToCart(product);
-toast.success(`${product.name} added to cart!`);
+const navigate=useNavigate()
+const user2 = localStorage.getItem("user2") ? JSON.parse(localStorage.getItem("user2")) : null
+const handleAddToWishlist = (product) => {
+  if (!user && user2) {
+
+    toast.warning('You need to log in to add items to the cart!');
+    navigate("/login"); // replace with your login route
+    return;
+  }
+  addToWishlist(product);
+  toast.info(`${product.name} added to wishlist!`);
 };
+
+
+
+  const handleAddToCart = (product) => {
+    if (!user) {
+
+      toast.warning('You need to log in to add items to the cart!');
+      navigate("/login"); // replace with your login route
+      return;
+    }
+  
+    addToCart(product);
+    toast.success(`${product.name} added to cart!`);
+  };
+  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
 const [isCartOpen, setIsCartOpen] = useState(false);
 
 const openCart = () => setIsCartOpen(true);

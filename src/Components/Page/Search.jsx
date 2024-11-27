@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';  
 import { WishlistContext } from "../../Context/WishContext";
 import CartSidebar from "./CartSidebar";
+import { useNavigate } from "react-router-dom";
  
 
 const Search   = () => {
@@ -159,11 +160,6 @@ const Search   = () => {
   const { addToCart } = useContext(CartContext);
   const { addToWishlist } = useContext(WishlistContext);
 
-  const handleAddToWishlist = (product) => {
-    addToWishlist(product);
-    toast.info(`${product.name} added to wishlist!`);
-  };
-
  
 
   const handleQuickView = (product) => {
@@ -173,11 +169,32 @@ const Search   = () => {
   const closeModal = () => {
     setSelectedProduct(null);  
   };
-
-  const handleAddToCart = (product) => {
-    addToCart(product);
-    toast.success(`${product.name} added to cart!`);
+  const navigate= useNavigate()
+  const handleAddToWishlist = (product) => {
+    if (!user) {
+  
+      toast.warning('You need to log in to add items to the cart!');
+      navigate("/login"); // replace with your login route
+      return;
+    }
+    addToWishlist(product);
+    toast.info(`${product.name} added to wishlist!`);
   };
+
+
+ 
+    const handleAddToCart = (product) => {
+      if (!user) {
+  
+        toast.warning('You need to log in to add items to the cart!');
+        navigate("/login"); // replace with your login route
+        return;
+      }
+    
+      addToCart(product);
+      toast.success(`${product.name} added to cart!`);
+    };
+    const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const openCart = () => setIsCartOpen(true);

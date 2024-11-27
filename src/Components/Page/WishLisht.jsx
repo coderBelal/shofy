@@ -14,12 +14,28 @@ const WishList = () => {
     addToCart(item);
     toast.success(`${item.name} has been added to your cart!`);
   };
-
+  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+  const use2 = localStorage.getItem("user2") ? JSON.parse(localStorage.getItem("user2")) : null
   const handleRemoveFromWishlist = (itemId, itemTitle) => {
     removeFromWishlist(itemId);
     toast.error(`${itemTitle} has been removed from your wishlist!`);
   };
-
+  
+  if (!user && !use2) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
+        <img
+          src="https://i.postimg.cc/vTtjkxc3/auth-banner.png"
+          alt="Cart Image"
+          className="mb-8 w-[300px]"
+        />
+        <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800">
+          <Link to="/login"> Log In and Continue </Link>
+        </button>
+      </div>
+    );
+  }
+  
   return (
     <div className="p-4 min-h-screen">
       <h2 className="text-2xl md:text-3xl font-extrabold mb-6 text-center text-gray-800">
